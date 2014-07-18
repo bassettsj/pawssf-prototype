@@ -1,4 +1,18 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"jvU/pp":[function(require,module,exports){
+(function (global){
+(function browserifyShim(module, define) {
+
+; global.jQuery = require("jquery");
+/*! X-rayHTML - v0.1.0 - 2013-01-23
+* https://github.com/filamentgroup/X-rayHTML
+* Copyright (c) 2013 Mat Marquis; Licensed MIT */
+(function(e){var t={pluginName:"view-source",text:{open:"View Source",close:"View Demo"},classes:{button:"btn btn-small",open:"view-source",sourcepanel:"source-panel"},initSelector:".source"},n={_create:function(){return e(this).each(function(){var n=e(this).data("init"+t.pluginName);if(n)return!1;e(this).data("init",!0)[t.pluginName]("_init").trigger("create."+t.pluginName)})},_init:function(){e(this)[t.pluginName]("_createButton")[t.pluginName]("_createSource")},_createButton:function(){var n=document.createElement("a"),r=document.createTextNode(t.text.open),i=e(this);n.setAttribute("class",t.classes.button),n.href="#",n.appendChild(r),e(n).bind("click",function(e){var r=i.attr("class").indexOf(t.classes.open)>-1;i[r?"removeClass":"addClass"](t.classes.open),n.innerHTML=r?t.text.open:t.text.close,e.preventDefault()}).insertBefore(i)},_createSource:function(){var n=this,r=document.createElement("pre"),i=document.createElement("code"),s=document.createElement("div"),u=document.createElement("div"),a=e(n).find(".snippet")[0].innerHTML,f=document.createTextNode(a);i.appendChild(f),r.appendChild(i),u.setAttribute("class",t.classes.sourcepanel),u.appendChild(r),this.appendChild(u)}};e.fn[t.pluginName]=function(n,r,i,s){return this.each(function(){if(n&&typeof n=="string")return e.fn[t.pluginName].prototype[n].call(this,r,i,s);if(e(this).data(t.pluginName+"data"))return e(this);e(this).data(t.pluginName+"active",!0),e.fn[t.pluginName].prototype._create.call(this)})},e.extend(e.fn[t.pluginName].prototype,n),e(function(){e(t.initSelector)[t.pluginName]()})})(jQuery);
+}).call(global, module, undefined);
+
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"jquery":3}],"X-rayHtlm":[function(require,module,exports){
+module.exports=require('jvU/pp');
+},{}],3:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
@@ -9190,12 +9204,14 @@ return jQuery;
 
 }));
 
-},{}],2:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var $;
 
 $ = require('jquery');
 
+require('X-rayHtlm');
+
 console.log('hello there, again...');
 
 
-},{"jquery":1}]},{},[2])
+},{"X-rayHtlm":"jvU/pp","jquery":3}]},{},[4])

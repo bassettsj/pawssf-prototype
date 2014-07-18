@@ -8,7 +8,7 @@ require('./watch')(gulp)
 require('./deploy')(gulp)
 
 gulp.task('default', ['scripts', 'sass', 'build'])
-gulp.task('dev',['default', 'preview', 'watch'])
+gulp.task('dev',['scripts', 'sass', 'preview', 'watch'])
 
 
 module.exports = gulp

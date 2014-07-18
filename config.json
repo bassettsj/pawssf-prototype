@@ -1,12 +1,13 @@
 {
   "locals": {
     "url": "http://localhost:8080",
-    "name": "The Wintersmith's blog",
-    "owner": "Someone",
-    "description": "Ramblings of an immor(t)al demigod"
+    "name": "Pattern Library",
+    "owner": "Steven Bassett",
+    "description": "Design in the browser."
   },
   "plugins": [
-    "./plugins/paginator.coffee"
+    "./plugins/paginator.coffee",
+    "wintersmith-html"
   ],
   "require": {
     "moment": "moment",
@@ -16,6 +17,9 @@
   "jade": {
     "pretty": true
   },
+  "ignore": [
+    ".DS_store"
+  ],
   "markdown": {
     "smartLists": true,
     "smartypants": true

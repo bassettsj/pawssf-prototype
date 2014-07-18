@@ -1,24 +1,29 @@
 wintersmith = require('wintersmith')
-config  = require('../config.json')
 _ = require('underscore')
-env = wintersmith(config)
+config  = require('../config.json')
+ghPages = _.defaults(require('../gh-pages.json'), config)
 
-prod = wintersmith(_.extend(config, {
-  locals:
-    url: 'http://bassettsj.me/pawssf-styleguide'
-  }))
+
+
+
+
+prod = wintersmith(ghPages)
 
 module.exports = (gulp) ->
   gulp.task('preview', ->
+    env = wintersmith(config)
     env.preview (error, server) ->
       if error
         throw error
       else
         console.log
+
   )
 
 
   gulp.task('build', ->
+    prod = wintersmith(ghPages)
+    prod.get(getPluginInfo())
     prod.build()
   )
 

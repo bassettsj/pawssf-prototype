@@ -5,7 +5,7 @@ extends layout
 block content
 	- var lineHeight = 2.2;
 	- var archives = _.chain(env.helpers.getArticles(contents)).groupBy(function(item) {
-	-	 return item.date.getFullYear()
+	-	 return item.date && item.date.getFullYear()
 	- }).value()
 	- for (var archive in archives) {
 	-	archives[archive] = _.groupBy(archives[archive], function(item){return item.date.getMonth();})
@@ -31,4 +31,3 @@ block content
 										li(style='height:'+ lineHeight + 'em;line-height:'+ lineHeight + 'em;')
 											a(href=item.url)=item.title
 						- }
-						
