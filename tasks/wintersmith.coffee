@@ -1,6 +1,12 @@
 wintersmith = require('wintersmith')
 config  = require('../config.json')
+_ = require('underscore')
 env = wintersmith(config)
+
+prod = wintersmith(_.extend(config, {
+  locals:
+    url: 'http://bassettsj.me/pawssf-styleguide'
+  }))
 
 module.exports = (gulp) ->
   gulp.task('preview', ->
@@ -13,8 +19,8 @@ module.exports = (gulp) ->
 
 
   gulp.task('build', ->
-    env.build()
+    prod.build()
   )
 
-  
+
   return gulp
