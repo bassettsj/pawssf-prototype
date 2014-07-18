@@ -9195,7 +9195,7 @@ var $;
 
 $ = require('jquery');
 
-console.log('hello there!');
+console.log('hello there, again...');
 
 
 },{"jquery":1}]},{},[2])
