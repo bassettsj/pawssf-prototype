@@ -15,7 +15,7 @@ html(lang='en')
       link(rel='stylesheet', href='/css/main.css')
   body(class=bodyclass)
     nav(role="navigation" id="skip-links")
-        a(href='#main-content' class='sr-focus') Main Content
+        a(href='#main-content' class='sr-only-focusable') Main Content
     header.header
       div.content-wrap
         block header
@@ -23,7 +23,7 @@ html(lang='en')
             h1
               a(href=locals.url)= locals.name
             p.description= locals.description
-    div#content
+    main#main-content(role='main')
       div.content-wrap
         block content
           h2 Welcome to zombocom!
@@ -36,3 +36,5 @@ html(lang='en')
             p &copy; #{ new Date().getFullYear() } #{ locals.owner } &mdash; powered by&nbsp;
               a(href='https://github.com/jnordberg/wintersmith') Wintersmith
               //- please leave the "powered by" if you use the design
+    .scripts
+      script(src="/js/pawssf.pkg.js")

@@ -11,4 +11,10 @@ module.exports = (gulp) ->
         console.log
   )
 
+
+  gulp.task('build', ->
+    env.build()
+  )
+
+  
   return gulp
